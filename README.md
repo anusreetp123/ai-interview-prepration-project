@@ -96,14 +96,9 @@ Use the STAR method to structure your answer.
 
 ## 📸 Screenshots
 
-Add screenshots of your application here
-
-Example:
-
-- Home Page
-- Generated Questions
-- AI Evaluation Results
-
+### 🏠 Home Page
+![Home Page](images/<img width="1006" height="507" alt="Screenshot 2026-07-29 132015" src="https://github.com/user-attachments/assets/bb49a53f-cdb5-46be-a09a-5133661bc3ec" />
+)
 ---
 
 ## 🔮 Future Improvements
