@@ -11,3 +11,18 @@ AI Interview Preparation Coach built with Streamlit and Groq LLM. Generates role
 - Interview tips for better responses
 - Interactive Streamlit web interface
 - Fast inference using the Groq API
+
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- Streamlit
+- Groq API
+- Llama 3.1 8B Instant
+- python-dotenv
+- JSON
+
+---
+
