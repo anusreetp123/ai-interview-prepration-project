@@ -104,5 +104,42 @@ Example:
 
 ---
 
+## 🔮 Future Improvements
+
+- Voice-based interview practice
+- Resume upload and analysis
+- Resume-based interview questions
+- Progress tracking dashboard
+- Interview history
+- Authentication system
+- Export feedback as PDF
+- Dark mode
+- Multiple AI model support
+
+---
+## 📖 Learning Outcomes
+
+Through this project, I gained practical experience with:
+
+- Prompt engineering
+- API integration
+- Streamlit web application development
+- JSON parsing
+- Environment variable management
+- Error handling
+- User interface design
+- LLM-based application development
+
 ---
 
+## 👩‍💻 Author
+
+**Anusree TP**
+
+Aspiring Data Analyst and Data Science Enthusiast passionate about building AI-powered applications and solving real-world problems with data.
+
+---
+
+## 📄 License
+
+This project is developed for educational and portfolio purposes.
