@@ -1,5 +1,7 @@
-# ai-interview-prepration-project
-AI Interview Preparation Coach built with Streamlit and Groq LLM. Generates role-based interview questions and evaluates candidate answers with AI-powered feedback, scoring, strengths, improvements, and interview tips.
+# 🤖 AI Interview Preparation Coach
+
+An AI-powered interview preparation application built with **Python**, **Streamlit**, and the **Groq API**. The application generates role-specific interview questions and evaluates user responses using a Large Language Model (LLM), providing personalized feedback to help candidates improve their interview skills.
+
 
 ## 📌 Features
 
