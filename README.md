@@ -143,6 +143,9 @@ Through this project, I gained practical experience with:
 
 Aspiring Data Analyst and Data Science Enthusiast passionate about building AI-powered applications and solving real-world problems with data.
 
+## Live Demo
+https://ai-interview-prepration-project-5fgovsblutmhrwcxnalqyv.streamlit.app/
+
 ---
 
 ## 📄 License
