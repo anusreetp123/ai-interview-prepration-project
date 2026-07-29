@@ -94,14 +94,16 @@ Use the STAR method to structure your answer.
 
 ---
 
-## 📸 Screenshots
+## 📸 Application Screenshots
 
 ### 🏠 Home Page
 <img width="800" height="400" alt="Screenshot 2026-07-29 132015" src="https://github.com/user-attachments/assets/bb49a53f-cdb5-46be-a09a-5133661bc3ec" />
-)
 
 ### ❓ Generated Questions
 <img width="992" height="392" alt="Screenshot 2026-07-29 132053" src="https://github.com/user-attachments/assets/64e0346b-0733-4864-b588-f831f4d23b93" />
+
+### 📊 AI Evaluation Result
+<img width="818" height="467" alt="Screenshot 2026-07-29 133248" src="https://github.com/user-attachments/assets/bd313a99-3e7d-4d37-8b6d-c0fc09f9b0ff" />
 
 
 
