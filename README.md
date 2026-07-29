@@ -99,8 +99,10 @@ Use the STAR method to structure your answer.
 ### 🏠 Home Page
 <img width="800" height="400" alt="Screenshot 2026-07-29 132015" src="https://github.com/user-attachments/assets/bb49a53f-cdb5-46be-a09a-5133661bc3ec" />
 )
-### ❓ Generated Questions and 📊 AI Evaluation Result
-<img width="800" height="400" alt="Screenshot 2026-07-29 132117" src="https://github.com/user-attachments/assets/d131a29d-d209-4265-99d1-70b222986c4f" />
+
+### ❓ Generated Questions
+<img width="992" height="392" alt="Screenshot 2026-07-29 132053" src="https://github.com/user-attachments/assets/64e0346b-0733-4864-b588-f831f4d23b93" />
+
 
 
 ---
