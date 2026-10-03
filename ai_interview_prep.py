@@ -2,14 +2,11 @@ import streamlit as st
 import os
 import re
 import json
-from groq import Groq
-from dotenv import load_dotenv
-
-load_dotenv(dotenv_path=".env")
+import anthropic
 
 
+MODEL = "claude-sonnet-4-6"
 
-MODEL = "llama-3.1-8b-instant"
 
 ROLES = [
     "Software Engineer",
@@ -32,58 +29,66 @@ STYLES = {
 
 def get_client():
 
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
 
     if not api_key:
-        st.error("Groq API key missing")
+        st.error("ANTHROPIC_API_KEY is missing")
         st.stop()
 
-    return Groq(api_key=api_key)
+    return anthropic.Anthropic(api_key=api_key)
 
 
-def ask_groq(client, prompt):
 
-    response = client.chat.completions.create(
+def ask_claude(client, prompt):
+
+    response = client.messages.create(
         model=MODEL,
+        max_tokens=800,
         messages=[
             {
-                "role": "user",
-                "content": prompt
+                "role":"user",
+                "content":prompt
             }
         ]
     )
 
-    return response.choices[0].message.content
-
+    return "".join(
+        block.text 
+        for block in response.content 
+        if block.type=="text"
+    )
 
 
 
 def extract_json(text):
 
-    cleaned = text.strip()
-
     cleaned = re.sub(
         r"```json|```",
         "",
-        cleaned
+        text
     ).strip()
 
-    try:
-        return json.loads(cleaned)
 
-    except json.JSONDecodeError:
+    start=min(
+        [
+            i for i in [
+                cleaned.find("{"),
+                cleaned.find("[")
+            ]
+            if i!=-1
+        ]
+    )
 
-        start_obj = cleaned.find("{")
-        end_obj = cleaned.rfind("}")
+    end=max(
+        cleaned.rfind("}"),
+        cleaned.rfind("]")
+    )
 
-        if start_obj != -1 and end_obj != -1:
-            return json.loads(
-                cleaned[start_obj:end_obj+1]
-            )
+    return json.loads(
+        cleaned[start:end+1]
+    )
 
-        st.error("Invalid JSON from AI")
-        st.code(text)
-        st.stop()
+
 
 def generate_questions(client, role, style, count):
 
@@ -103,60 +108,45 @@ Example:
 """
 
 
-    response=ask_groq(client,prompt)
-    return extract_json(response)
+    response=ask_claude(client,prompt)
 
+    return extract_json(response)
 
 
 
 def evaluate_answer(client, role, question, answer):
 
-    if not answer.strip():
-        return {
-            "score": 0,
-            "strengths": [],
-            "improvements": [
-                "Please provide an answer to evaluate"
-            ],
-            "model_answer_tip": "Use the STAR method to structure your answer"
-        }
-
     prompt=f"""
-You are a strict interview evaluator.
+You are an expert interview evaluator.
 
 Role:
 {role}
 
-Interview Question:
+Question:
 {question}
 
 Candidate Answer:
 {answer}
 
-Scoring rules:
-- Empty answer: score 0-2
-- Very short answer: score 2-4
-- Basic answer: score 5-7
-- Strong detailed answer: score 8-10
 
-Return ONLY valid JSON.
-
-Format:
+Return JSON:
 
 {{
-    "score": 0,
-    "strengths": [],
-    "improvements": [],
-    "model_answer_tip": ""
+"score":8,
+"strengths":[""],
+"improvements":[""],
+"model_answer_tip":""
 }}
+
 """
 
-    response = ask_groq(client, prompt)
+
+    response=ask_claude(client,prompt)
+
+    return extract_json(response)
 
 
-    feedback = extract_json(response)
 
-    return feedback
 # ---------------- STREAMLIT UI ----------------
 
 
